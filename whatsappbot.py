@@ -22,7 +22,7 @@ def buscar_contato(contato):
     sleep(3)
     pesquisar_contato.send_keys(Keys.ENTER)
 
-
+# Aqui ele vai enviar a mensagem para os contatos
 def enviarmensagem(mensagem):
     chat_box = driver.find_element("xpath", '/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div/span[2]/div/div['
                                             '2]/div[1]')
