@@ -6,11 +6,12 @@ from selenium.webdriver.common.keys import Keys
 # Definindo o caminho que vai acessar e baixando o driver do navegador
 driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get("https://web.whatsapp.com/")
-sleep(10)
+# Tempo para escanear qrcode
+sleep(15)
 
 # Mensagem que vai se enviada e para quem vai ser enviado
-mensagem = "Testando o envio de mensagem. Nao precisa responder"
-conversas = ["Gui Gui", "Naturfit"]
+mensagem = "Testando o envio de mensagem com o bot whatsapp"
+conversas = ["Gui Gui", "Amor"]
 
 
 # Aqui ele vai buscar o contato na pesquisa
@@ -22,6 +23,7 @@ def buscar_contato(contato):
     sleep(3)
     pesquisar_contato.send_keys(Keys.ENTER)
 
+
 # Aqui ele vai enviar a mensagem para os contatos
 def enviarmensagem(mensagem):
     chat_box = driver.find_element("xpath", '/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div/span[2]/div/div['
@@ -32,6 +34,7 @@ def enviarmensagem(mensagem):
     chat_box.send_keys(Keys.ENTER)
 
 
+# main
 for conversa in conversas:
     buscar_contato(conversa)
     enviarmensagem(mensagem)
